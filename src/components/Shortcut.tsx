@@ -9,6 +9,7 @@ import {
 } from "@tauri-apps/plugin-global-shortcut";
 import { load } from "@tauri-apps/plugin-store";
 import { LineInfo } from "./Interfaces.tsx";
+import { useTranslation } from "react-i18next";
 
 interface IProps {}
 
@@ -16,6 +17,7 @@ const Index: React.FC<IProps> = () => {
   const [start, setStart] = useState<string>("Ctrl+Shift+A");
   const [end, setEnd] = useState<string>("Ctrl+Shift+B");
   const [loading, setLoading] = useState<boolean>(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     init().then(() => setLoading(false));
@@ -91,7 +93,7 @@ const Index: React.FC<IProps> = () => {
               storeLineList.filter((line) => line.enable);
               if (storeLineList.length > 0) {
                 await invoke("run_keyboard", { lineList: storeLineList });
-                message.info("开始连点");
+                message.info(t("Shortcut.Message.Start"));
               }
             }
           }
@@ -102,13 +104,13 @@ const Index: React.FC<IProps> = () => {
         await register(endKey, async (e: ShortcutEvent) => {
           if (e.state === "Released") {
             await invoke("stop_keyboard");
-            message.info("结束连点");
+            message.info(t("Shortcut.Message.End"));
           }
         });
       }
     } catch (e) {
       if (!isInit) {
-        message.error("保存出错:" + e);
+        message.error(t("Shortcut.SaveError") + ":" + e);
       }
     }
   };
@@ -117,26 +119,24 @@ const Index: React.FC<IProps> = () => {
     <>
       <div style={loading ? { display: "none" } : { display: "block" }}>
         <span>
-          启动热键：
+          {t("Shortcut.Label.StartShortcut")}：
           <Input
-            style={{ width: 200 }}
+            style={{ width: 160 }}
             value={start}
             onKeyDown={(e) => {
               handleKeyDown(e, 1);
             }}
-            placeholder="键入启动快捷键"
             readOnly
           />
         </span>
         <span style={{ marginLeft: 30 }}>
-          结束热键：
+          {t("Shortcut.Label.StopShortcut")}：
           <Input
-            style={{ width: 200 }}
+            style={{ width: 160 }}
             value={end}
             onKeyDown={(e) => {
               handleKeyDown(e, 2);
             }}
-            placeholder="键入结束快捷键"
             readOnly
           />
         </span>
@@ -145,11 +145,11 @@ const Index: React.FC<IProps> = () => {
           style={{ marginLeft: 20 }}
           onClick={() => {
             saveAndRegister(start, end, false).then(() =>
-              message.success("保存成功!")
+              message.success(t("Shortcut.SaveSuccess"))
             );
           }}
         >
-          保存
+          {t("Shortcut.Save")}
         </Button>
       </div>
     </>

@@ -1,0 +1,21 @@
+{
+  "InputLine.Enable": "启用",
+  "InputLine.Key": "按键",
+  "InputLine.Interval": "间隔(ms)",
+  "InputLine.Interval_Error": "间隔不能小于1ms！",
+  "InputLine.Delete": "删除",
+  "InputLine.NotSupportKey": "不支持的按键：",
+  "InputLine.Delete.Confirm.Msg": "确认删除吗",
+  "InputLine.Delete.Confirm.Confirm": "是",
+  "InputLine.Delete.Confirm.Cancel": "否",
+  "Config.Modal.Title": "设置",
+  "Config.Modal.Language.Label": "语言",
+  "Shortcut.Message.Start": "开始连点",
+  "Shortcut.Message.End": "结束连点",
+  "Shortcut.Label.StartShortcut": "开始热键",
+  "Shortcut.Label.StopShortcut": "结束热键",
+  "Shortcut.SaveError": "保存出错",
+  "Shortcut.SaveSuccess": "保存成功",
+  "Shortcut.Save": "保存",
+  "InputList.NewLine": "新增"
+}

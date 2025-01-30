@@ -12,8 +12,8 @@
   "app": {
     "windows": [
       {
-        "title": "键盘连点器",
-        "width": 800,
+        "title": "ClickBot - 键盘连点器",
+        "width": 850,
         "height": 600,
         "resizable": false
       }

@@ -1,0 +1,21 @@
+{
+  "InputLine.Enable": "有効",
+  "InputLine.Key": "キー",
+  "InputLine.Interval": "間隔(ms)",
+  "InputLine.Interval_Error": "間隔は1ms未満にできません！",
+  "InputLine.Delete": "削除",
+  "InputLine.NotSupportKey": "サポートされていないキー：",
+  "InputLine.Delete.Confirm.Msg": "削除しますか？",
+  "InputLine.Delete.Confirm.Confirm": "はい",
+  "InputLine.Delete.Confirm.Cancel": "いいえ",
+  "Config.Modal.Title": "設定",
+  "Config.Modal.Language.Label": "言語",
+  "Shortcut.Message.Start": "連打開始",
+  "Shortcut.Message.End": "連打終了",
+  "Shortcut.Label.StartShortcut": "開始ショートカット",
+  "Shortcut.Label.StopShortcut": "終了ショートカット",
+  "Shortcut.SaveError": "保存エラー",
+  "Shortcut.SaveSuccess": "保存成功",
+  "Shortcut.Save": "保存",
+  "InputList.NewLine": "新規追加"
+}

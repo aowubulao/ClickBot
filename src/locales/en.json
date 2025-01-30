@@ -1,0 +1,21 @@
+{
+  "InputLine.Enable": "Enable",
+  "InputLine.Key": "Key",
+  "InputLine.Interval": "Interval (ms)",
+  "InputLine.Interval_Error": "Interval cannot be less than 1ms!",
+  "InputLine.Delete": "Delete",
+  "InputLine.NotSupportKey": "Unsupported key:",
+  "InputLine.Delete.Confirm.Msg": "Are you sure you want to delete?",
+  "InputLine.Delete.Confirm.Confirm": "Yes",
+  "InputLine.Delete.Confirm.Cancel": "No",
+  "Config.Modal.Title": "Settings",
+  "Config.Modal.Language.Label": "Language",
+  "Shortcut.Message.Start": "Start Auto-click",
+  "Shortcut.Message.End": "Stop Auto-click",
+  "Shortcut.Label.StartShortcut": "Start Hotkey",
+  "Shortcut.Label.StopShortcut": "Stop Hotkey",
+  "Shortcut.SaveError": "Save Error",
+  "Shortcut.SaveSuccess": "Save Successful",
+  "Shortcut.Save": "Save",
+  "InputList.NewLine": "Add New"
+}

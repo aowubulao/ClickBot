@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Input, message, Popconfirm, Switch } from "antd";
 import { LineInfo } from "./Interfaces.tsx";
 import { invoke } from "@tauri-apps/api/core";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   lineInfo: LineInfo;
@@ -14,6 +15,7 @@ const Index: React.FC<IProps> = (props) => {
 
   const [supportKeys, setSupportKey] = useState<Set<String>>(new Set());
   const [loading, setLoading] = useState<boolean>(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setPressedKey(lineInfo.key);
@@ -37,7 +39,7 @@ const Index: React.FC<IProps> = (props) => {
     const key = event.key.toUpperCase();
     console.log(key);
     if (!supportKeys.has(key)) {
-      message.error("不支持的按键!");
+      message.error(t("InputLine.NotSupportKey") + key);
       return;
     }
     setPressedKey(key);
@@ -53,7 +55,7 @@ const Index: React.FC<IProps> = (props) => {
     <>
       <div style={loading ? { display: "none" } : { display: "block" }}>
         <span>
-          启用：
+          {t("InputLine.Enable")}：
           <Switch
             value={enable}
             onChange={(e: boolean) => {
@@ -64,7 +66,7 @@ const Index: React.FC<IProps> = (props) => {
           />
         </span>
         <span style={{ marginLeft: 20 }}>
-          按键：
+          {t("InputLine.Key")}：
           <Input
             style={{ width: 150 }}
             value={pressedKey}
@@ -73,7 +75,7 @@ const Index: React.FC<IProps> = (props) => {
           />
         </span>
         <span style={{ marginLeft: 20 }}>
-          间隔(ms)：
+          {t("InputLine.Interval")}：
           <Input
             style={{ width: 120 }}
             value={interval}
@@ -81,7 +83,7 @@ const Index: React.FC<IProps> = (props) => {
             onChange={(e: any) => {
               const itv = Math.floor(e.target.value);
               if (itv <= 0) {
-                message.error("间隔不能为0!");
+                message.error(t("InputLine.Interval_Error"));
               } else {
                 setInterval(itv);
               }
@@ -93,13 +95,13 @@ const Index: React.FC<IProps> = (props) => {
         <span style={{ marginLeft: 20 }}>
           <Popconfirm
             placement="right"
-            title={"确认删除吗"}
+            title={t("InputLine.Delete.Confirm.Msg")}
             onConfirm={() => delLine(lineInfo.id)}
-            okText="是"
-            cancelText="否"
+            okText={t("InputLine.Delete.Confirm.Confirm")}
+            cancelText={t("InputLine.Delete.Confirm.Cancel")}
           >
             <Button type="primary" danger ghost>
-              删除
+              {t("InputLine.Delete")}
             </Button>
           </Popconfirm>
         </span>

@@ -4,6 +4,7 @@ import { LineInfo } from "./Interfaces.tsx";
 import InputLine from "./InputLine.tsx";
 import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 
 interface IProps {}
 
@@ -11,6 +12,7 @@ const Index: React.FC<IProps> = () => {
   const [lineMap, setLineMap] = useState<Map<string, LineInfo>>(
     new Map<string, LineInfo>()
   );
+  const { t } = useTranslation();
 
   useEffect(() => {
     init();
@@ -74,7 +76,7 @@ const Index: React.FC<IProps> = () => {
           icon={<PlusOutlined />}
           onClick={() => addLine()}
         >
-          新增
+          {t('InputList.NewLine')}
         </Button>
         <div>
           {Array.from(lineMap.entries()).map(([key, value]) => (
