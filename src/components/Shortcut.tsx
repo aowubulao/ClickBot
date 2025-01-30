@@ -13,11 +13,12 @@ import { LineInfo } from "./Interfaces.tsx";
 interface IProps {}
 
 const Index: React.FC<IProps> = () => {
-  const [start, setStart] = useState("Ctrl+Shift+A");
-  const [end, setEnd] = useState("Ctrl+Shift+B");
+  const [start, setStart] = useState<string>("Ctrl+Shift+A");
+  const [end, setEnd] = useState<string>("Ctrl+Shift+B");
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    init();
+    init().then(() => setLoading(false));
     return () => {
       unregisterAll();
     };
@@ -114,7 +115,7 @@ const Index: React.FC<IProps> = () => {
 
   return (
     <>
-      <div>
+      <div style={loading ? { display: "none" } : { display: "block" }}>
         <span>
           启动热键：
           <Input

@@ -1,7 +1,7 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "ClickBot",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "identifier": "io.github.aowubulao",
   "build": {
     "beforeDevCommand": "yarn dev",
@@ -14,7 +14,8 @@
       {
         "title": "键盘连点器",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "resizable": false
       }
     ],
     "security": {
@@ -28,7 +29,8 @@
       "icons/icon_32x32.png",
       "icons/icon_128x128.png",
       "icons/icon_128x128@2x.png",
-      "icons/icon.icns"
+      "icons/icon.icns",
+      "icons/icon.ico"
     ]
   }
 }

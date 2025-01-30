@@ -13,12 +13,13 @@ const Index: React.FC<IProps> = (props) => {
   const { lineInfo, setLineInfo, delLine } = props;
 
   const [supportKeys, setSupportKey] = useState<Set<String>>(new Set());
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     setPressedKey(lineInfo.key);
     setEnable(lineInfo.enable);
     setInterval(lineInfo.interval);
-    initKeys();
+    initKeys().then(() => setLoading(false));
   }, []);
 
   const initKeys = async () => {
@@ -50,7 +51,7 @@ const Index: React.FC<IProps> = (props) => {
 
   return (
     <>
-      <div>
+      <div style={loading ? { display: "none" } : { display: "block" }}>
         <span>
           启用：
           <Switch
