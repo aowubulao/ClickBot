@@ -1,8 +1,8 @@
 import "./App.css";
-import InputList from "./components/InputList.tsx";
-import Shortcut from "./components/Shortcut.tsx";
+import Shortcut from "./components/shortcut.tsx";
 import { Divider } from "antd";
-import Config from "./components/Config.tsx";
+import Config from "./components/config.tsx";
+import InputList from "./components/inputList.tsx";
 
 function App() {
   return (
