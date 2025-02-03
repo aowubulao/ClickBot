@@ -16,52 +16,53 @@ const Index: React.FC<IProps> = () => {
     form.setFieldValue("language", i18n.language);
   }, []);
 
+  const configModal = () => {
+    return (
+      <Modal
+        title={t("Config.Modal.Title")}
+        open={configVisible}
+        onOk={() => setConfigVisible(false)}
+        onCancel={() => setConfigVisible(false)}
+        footer={null}
+      >
+        <Form
+          style={{ height: 150, marginTop: 40 }}
+          name="basic"
+          labelCol={{ span: 5 }}
+          labelAlign={"left"}
+          form={form}
+        >
+          <Form.Item label={t("Config.Modal.Language.Label")} name="language">
+            <Select
+              onChange={(e: string) => {
+                i18n.changeLanguage(e);
+                localStorage.setItem("cb.language", e);
+              }}
+              options={[
+                {
+                  value: "zh",
+                  label: "简体中文",
+                },
+                {
+                  value: "en",
+                  label: "English",
+                },
+                {
+                  value: "ja",
+                  label: "日本語",
+                },
+              ]}
+            />
+          </Form.Item>
+        </Form>
+      </Modal>
+    );
+  };
+
   return (
     <>
       <div>
-        {configVisible ? (
-          <Modal
-            title={t("Config.Modal.Title")}
-            open={configVisible}
-            onOk={() => setConfigVisible(false)}
-            onCancel={() => setConfigVisible(false)}
-            footer={null}
-          >
-            <Form
-              style={{ height: 150, marginTop: 40 }}
-              name="basic"
-              labelCol={{ span: 5 }}
-              labelAlign={"left"}
-              form={form}
-            >
-              <Form.Item
-                label={t("Config.Modal.Language.Label")}
-                name="language"
-              >
-                <Select
-                  onChange={(e: string) => {
-                    i18n.changeLanguage(e);
-                    localStorage.setItem("cb.language", e);
-                  }}
-                  options={[
-                    {
-                      value: "zh",
-                      label: "简体中文",
-                    },
-                    {
-                      value: "en",
-                      label: "English",
-                    },
-                    {
-                      value: "ja",
-                      label: "日本語",
-                    },
-                  ]}
-                />
-              </Form.Item>
-            </Form>
-          </Modal>
-        ) : null}
+        {configModal()}
         <Button
           onClick={() => setConfigVisible(true)}
           className={"fixed-button"}

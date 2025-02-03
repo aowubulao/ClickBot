@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { load } from "@tauri-apps/plugin-store";
-import { LineInfo } from "./Interfaces.tsx";
+import { LineInfo } from "./interfaces.tsx";
 import InputLine from "./inputLine.tsx";
 import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";

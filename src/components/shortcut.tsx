@@ -8,7 +8,7 @@ import {
   unregisterAll,
 } from "@tauri-apps/plugin-global-shortcut";
 import { load } from "@tauri-apps/plugin-store";
-import { LineInfo } from "./Interfaces.tsx";
+import { LineInfo } from "./interfaces.tsx";
 import { useTranslation } from "react-i18next";
 
 interface IProps {}

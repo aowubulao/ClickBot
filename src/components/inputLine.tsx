@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Input, message, Popconfirm, Switch } from "antd";
-import { LineInfo } from "./Interfaces.tsx";
+import { LineInfo } from "./interfaces.tsx";
 import { invoke } from "@tauri-apps/api/core";
 import { useTranslation } from "react-i18next";
 

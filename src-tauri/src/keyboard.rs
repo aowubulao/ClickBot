@@ -54,18 +54,50 @@ lazy_static! {
         map.insert("ARROWDOWN", Key::DownArrow);
         map.insert("ARROWLEFT", Key::LeftArrow);
         map.insert("ARROWRIGHT", Key::RightArrow);
-        // #[cfg(target_os = "windows")]
-        // insert_windows_key(&mut map);
+        #[cfg(target_os = "windows")]
+        insert_windows_key(&mut map);
         map
     };
 }
-// #[cfg(target_os = "windows")]
-// fn insert_windows_key(map: &mut HashMap<&'static str, Key>) {
-//   for c in b'A'..=b'Z' {
-//     let key = (c as char).to_string();
-//     map.insert(Box::leak(key.into_boxed_str()), Key::from(c as char));
-//   }
-// }
+#[cfg(target_os = "windows")]
+fn insert_windows_key(map: &mut HashMap<&'static str, Key>) {
+  map.insert("A", Key::A);
+  map.insert("B", Key::B);
+  map.insert("C", Key::C);
+  map.insert("D", Key::D);
+  map.insert("E", Key::E);
+  map.insert("F", Key::F);
+  map.insert("G", Key::G);
+  map.insert("H", Key::H);
+  map.insert("I", Key::I);
+  map.insert("J", Key::J);
+  map.insert("K", Key::K);
+  map.insert("L", Key::L);
+  map.insert("M", Key::M);
+  map.insert("N", Key::N);
+  map.insert("O", Key::O);
+  map.insert("P", Key::P);
+  map.insert("Q", Key::Q);
+  map.insert("R", Key::R);
+  map.insert("S", Key::S);
+  map.insert("T", Key::T);
+  map.insert("U", Key::U);
+  map.insert("V", Key::V);
+  map.insert("W", Key::W);
+  map.insert("X", Key::X);
+  map.insert("Y", Key::Y);
+  map.insert("Z", Key::Z);
+  map.insert("0", Key::Num0);
+  map.insert("1", Key::Num1);
+  map.insert("2", Key::Num2);
+  map.insert("3", Key::Num3);
+  map.insert("4", Key::Num4);
+  map.insert("5", Key::Num5);
+  map.insert("6", Key::Num6);
+  map.insert("7", Key::Num7);
+  map.insert("8", Key::Num8);
+  map.insert("9", Key::Num9);
+}
 
 #[tauri::command]
 pub fn run_keyboard(line_list: Vec<LineInfo>) {
